@@ -956,16 +956,27 @@ namespace WindowsFormsApp1
 								foreach (var Map0_000000000_0_obj_0 in Map0_000000000_0_obj.properties)
 								{
 									var oS = Map0_000000000_0_obj_0["oS"]?.GetString();
+									var l0 = Map0_000000000_0_obj_0["l0"]?.GetString();
+									var l1 = Map0_000000000_0_obj_0["l1"]?.GetString();
+									var l2 = Map0_000000000_0_obj_0["l2"]?.GetString();
+									var x = Map0_000000000_0_obj_0["x"]?.GetInt();
+									var y = Map0_000000000_0_obj_0["y"]?.GetInt();
+									var z = Map0_000000000_0_obj_0["z"]?.GetInt();
+									var zM = Map0_000000000_0_obj_0["zM"]?.GetInt();
+									var f = Map0_000000000_0_obj_0["f"]?.GetInt();
 									if (oS is "connect" || oS is "connectGL")
 									{
-										var l0 = Map0_000000000_0_obj_0["l0"]?.GetString();
-										var l1 = Map0_000000000_0_obj_0["l1"]?.GetString();
-										var l2 = Map0_000000000_0_obj_0["l2"]?.GetString();
-										var x = Map0_000000000_0_obj_0["x"]?.GetInt();
-										var y = Map0_000000000_0_obj_0["y"]?.GetInt();
-										var z = Map0_000000000_0_obj_0["z"]?.GetInt();
-										var zM = Map0_000000000_0_obj_0["zM"]?.GetInt();
-										var f = Map0_000000000_0_obj_0["f"]?.GetInt();
+
+										var ladderrope = wzFile["Obj"][$"{oS}.img"][l0][l1][l2] as WzSubProperty;
+										var ladderropeCanvas = ladderrope?.properties?[0] as WzCanvasProperty;
+										if (ladderropeCanvas != null)
+										{
+											var ladderropeBitmap = ladderropeCanvas.GetLinkedWzCanvasBitmap();
+											var width = ladderropeBitmap.Width;
+											var height = ladderropeBitmap.Height;
+											var origin = ladderropeCanvas.GetCanvasOriginPosition();
+
+										}
 
 
 									}
